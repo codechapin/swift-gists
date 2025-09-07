@@ -1,0 +1,1 @@
+Gist that shows how to create a window with AppKit, without Storyboard and no SwiftUI.
