@@ -37,7 +37,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         // to avoid endiannes issues we do this:
         let color: Color = UInt32(0x0000FFFF).littleEndian // blue
-        // if you want ABGR, make the Color and CGBitmapInfo the opposite endian
 
         let bitsPerComponent = 8
         let bytesPerRow = 4 * imageWidth

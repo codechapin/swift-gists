@@ -41,8 +41,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //window.contentViewController = controller
         //let view = controller.view
 
-        //view.wantsLayer = true
-
         let box = NSBox()
         box.boxType = .custom
         box.fillColor = NSColor.blue
