@@ -4,6 +4,11 @@
 
 import Cocoa
 
+let width = 800
+let height = 600
+let boxWidth = width / 2
+let boxHeight = height / 2
+
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     var window: NSWindow!
@@ -11,7 +16,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
        
         let contentRect = NSRect(x: 0, y: 0,
-                                 width: 800, height: 600)
+                                 width: width, height: height)
         
         let styleMask: NSWindow.StyleMask = [
             .titled, .closable, .miniaturizable, .resizable
@@ -25,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.title = "An AppKit Window"
         window.makeKeyAndOrderFront(nil)
         window.orderFrontRegardless()
-        window.backgroundColor = NSColor.systemBlue
+        window.backgroundColor = NSColor.systemGray
         window.center()
 
         // using the contentView without a Controller,
@@ -36,19 +41,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //window.contentViewController = controller
         //let view = controller.view
 
-        view.wantsLayer = true
+        //view.wantsLayer = true
 
-        let textWidth = 200.0
-        let textHeight = 40.0
+        let box = NSBox()
+        box.boxType = .custom
+        box.fillColor = NSColor.blue
+        box.frame = NSRect(x: 0, y: 0, // from bottom left
+            width: boxWidth, height: boxHeight)
 
-        let viewBounds = view.bounds
-        let posX = (viewBounds.width - textWidth) / 2
-        let posY = (viewBounds.height - textHeight) / 2
-
-        let label = NSTextField(labelWithString: "Hello from NSWindow!")
-        label.frame = NSRect(x: posX, y: posY, width: textWidth, height: textHeight)
-
-        view.addSubview(label)
+        view.addSubview(box)
     }
 
     func applicationWillTerminate(_ notification: Notification) {

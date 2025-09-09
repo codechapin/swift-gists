@@ -1,0 +1,1 @@
+Writing raw pixels to an image. Using raw pointers to learn how to use them.
