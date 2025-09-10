@@ -30,13 +30,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func drawImage() -> NSImage? {
-        // RGBA (RRGGBBAA).
-        // Watchout with endiannes!!! It can switch to ABGR if chip is big endian.
-        // M chips are little indian so: CGBitmapInfo.byteOrder32Little matches to chip
-        // let color: Color = 0x0000FFFF // blue
+        // ABGR (AABBGGRR). (Use: CGBitmapInfo.byteOrder32Big)
+        // let color: Color = 0xFFFF0000 // blue
 
-        // to avoid endiannes issues we do this:
-        let color: Color = UInt32(0x0000FFFF).littleEndian // blue
+        // RGBA (RRGGBBAA). Use CGBitmapInfo.byteOrder32Little
+        let color: Color = 0x0000FFFF // blue
 
         let bitsPerComponent = 8
         let bytesPerRow = 4 * imageWidth
