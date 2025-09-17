@@ -13,7 +13,7 @@ let height = 600
 let imageWidth = width / 2
 let imageHeight = height / 2
 
-let rawData = Pixel.allocate(capacity: imageWidth * imageHeight)
+let rawData = Pixel.allocate(capacity: imageWidth * imageHeight) // heap allocation
 defer {
     rawData.deallocate()
 }
