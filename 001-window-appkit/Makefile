@@ -1,10 +1,10 @@
 BUILD_DIR = build
 
-compile: main.swift | $(BUILD_DIR)
+build: main.swift | make_dir
 	swiftc main.swift -o $(BUILD_DIR)/main
 
-$(BUILD_DIR):
-	mkdir -p $@
+make_dir:
+	mkdir -p $(BUILD_DIR)
 
 clean:
 	rm -r $(BUILD_DIR)
